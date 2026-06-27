@@ -1,4 +1,4 @@
-from backend.graph.state import AgentState
+from graph.state import AgentState
 
 
 def knowledge_tool(state: AgentState) -> AgentState:

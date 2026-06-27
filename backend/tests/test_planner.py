@@ -1,4 +1,4 @@
-from backend.agents.planner_agent import planner_agent
+from agents.planner_agent import planner_agent
 
 
 state = {

@@ -2,10 +2,10 @@ import json
 
 from langchain_core.messages import HumanMessage
 
-from backend.config.llm import llm
-from backend.graph.state import AgentState
-from backend.models.recommendation_models import RecommendationOutput
-from backend.prompts.recommendation_prompt import RECOMMENDATION_PROMPT
+from config.llm import llm
+from graph.state import AgentState
+from models.recommendation_models import RecommendationOutput
+from prompts.recommendation_prompt import RECOMMENDATION_PROMPT
 
 
 def recommendation_agent(state: AgentState) -> AgentState:

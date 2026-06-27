@@ -1,4 +1,4 @@
-from backend.config.llm import llm
+from config.llm import llm
 
 response = llm.invoke("Say hello in one sentence.")
 

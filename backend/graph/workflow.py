@@ -1,13 +1,13 @@
 from langgraph.graph import StateGraph, START, END
 
-from backend.graph.state import AgentState
+from graph.state import AgentState
 
-from backend.agents.planner_agent import planner_agent
-from backend.agents.recommendation_agent import recommendation_agent
+from agents.planner_agent import planner_agent
+from agents.recommendation_agent import recommendation_agent
 
-from backend.tools.crm_tool import crm_tool
-from backend.tools.knowledge_tool import knowledge_tool
-from backend.tools.memory_tool import memory_tool
+from tools.crm_tool import crm_tool
+from tools.knowledge_tool import knowledge_tool
+from tools.memory_tool import memory_tool
 
 
 # ---------- CONDITIONS ----------

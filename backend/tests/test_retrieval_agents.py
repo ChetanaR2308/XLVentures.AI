@@ -1,6 +1,6 @@
-from backend.agents.crm_agent import crm_agent
-from backend.agents.knowledge_agent import knowledge_agent
-from backend.agents.memory_agent import memory_agent
+from agents.crm_agent import crm_agent
+from agents.knowledge_agent import knowledge_agent
+from agents.memory_agent import memory_agent
 
 state = {
     "transcript": "",

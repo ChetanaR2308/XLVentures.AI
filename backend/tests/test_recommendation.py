@@ -1,4 +1,4 @@
-from backend.agents.recommendation_agent import recommendation_agent
+from agents.recommendation_agent import recommendation_agent
 
 state = {
     "transcript": """

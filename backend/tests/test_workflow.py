@@ -1,4 +1,4 @@
-from backend.graph.workflow import workflow
+from graph.workflow import workflow
 
 
 state = {
