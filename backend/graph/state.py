@@ -1,20 +1,20 @@
-from typing import TypedDict
+from typing import Any
+from typing_extensions import TypedDict
 
 
 class AgentState(TypedDict):
-
     transcript: str
 
-    plan: dict
+    plan: dict[str, Any]
 
-    crm_data: dict
+    crm_data: dict[str, Any]
 
-    knowledge: str
+    knowledge: list[str]
 
-    memory: str
+    memory: list[str]
 
-    recommendation: str
+    recommendations: list[str]
 
-    explanation: str
+    explanation: list[str]
 
     confidence: int

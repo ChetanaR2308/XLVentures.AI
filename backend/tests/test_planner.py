@@ -2,16 +2,27 @@ from backend.agents.planner_agent import planner_agent
 
 
 state = {
+    "transcript": """
+Customer says response time is poor.
 
-    "transcript":
-    """
-    Customer said support response is slow.
+Renewal is in 20 days.
 
-    Renewal is next month.
+Customer is evaluating competitors.
+""",
 
-    Customer is considering competitors.
-    """
+    "plan": {},
 
+    "crm_data": {},
+
+    "knowledge": [],
+
+    "memory": [],
+
+    "recommendations": [],
+
+    "explanation": [],
+
+    "confidence": 0,
 }
 
 result = planner_agent(state)
