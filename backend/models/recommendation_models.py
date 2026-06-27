@@ -6,4 +6,7 @@ class RecommendationOutput(BaseModel):
 
     reasoning: list[str] = Field(default_factory=list)
 
-    confidence: int = Field(ge=0, le=100)
+    confidence: int = Field(
+        ge=0,
+        le=100,
+    )

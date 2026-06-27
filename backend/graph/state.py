@@ -1,17 +1,14 @@
 from typing import Any
+
 from typing_extensions import TypedDict
 
 
 class AgentState(TypedDict):
     transcript: str
 
-    plan: dict[str, Any]
+    execution_plan: dict[str, Any]
 
-    crm_data: dict[str, Any]
-
-    knowledge: list[dict]
-    
-    memory: list[dict]
+    context: dict[str, Any]
 
     recommendations: list[str]
 

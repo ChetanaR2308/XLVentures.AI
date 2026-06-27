@@ -2,10 +2,10 @@ from pydantic import BaseModel, Field
 
 
 class AgentDecision(BaseModel):
-    name: str = Field(..., description="Agent name")
-    reason: str = Field(..., description="Reason for selecting the agent")
+    name: str = Field(...)
+
+    reason: str = Field(...)
 
 
 class PlannerOutput(BaseModel):
     agents: list[AgentDecision]
-    
