@@ -2,9 +2,9 @@ from pydantic import BaseModel, Field
 
 
 class AgentDecision(BaseModel):
-    name: str = Field(...)
+    name: str = Field(..., description="Tool or agent name")
 
-    reason: str = Field(...)
+    reason: str = Field(..., description="Why this tool is needed")
 
 
 class PlannerOutput(BaseModel):
