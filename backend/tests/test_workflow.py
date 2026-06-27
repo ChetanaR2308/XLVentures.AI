@@ -1,31 +1,18 @@
 from backend.graph.workflow import workflow
 
+
 state = {
     "transcript": """
-Customer complained about delayed support.
+Customer is unhappy with support response time.
 
-Renewal is in 12 days.
+Renewal is in 10 days.
 
-Customer is evaluating competitors.
+Customer is comparing competitors.
 """,
 
-    "plan": {},
+    "execution_plan": {},
 
-    "crm_data": {
-        "tier": "Enterprise",
-        "renewal_days": 12,
-        "account_health": "At Risk",
-    },
-
-    "knowledge": [
-        "Enterprise customers qualify for executive escalation.",
-        "Renewals should begin within 30 days."
-    ],
-
-    "memory": [
-        "Customer complained about support last quarter.",
-        "Requested roadmap presentation."
-    ],
+    "context": {},
 
     "recommendations": [],
 
@@ -34,13 +21,14 @@ Customer is evaluating competitors.
     "confidence": 0,
 }
 
+
 result = workflow.invoke(state)
 
-print("\nRecommendations")
+print("\n=== RECOMMENDATIONS ===")
 print(result["recommendations"])
 
-print("\nReasoning")
+print("\n=== EXPLANATION ===")
 print(result["explanation"])
 
-print("\nConfidence")
+print("\n=== CONFIDENCE ===")
 print(result["confidence"])

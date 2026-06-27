@@ -2,18 +2,13 @@ from backend.graph.state import AgentState
 
 
 def knowledge_tool(state: AgentState) -> AgentState:
-    """
-    Enterprise knowledge retrieval placeholder.
-    """
 
     context = state.get("context", {})
 
-    knowledge = context.get("knowledge", [
-        "Standard enterprise escalation policy applies.",
-        "Renewals should be reviewed 30 days in advance.",
+    context["knowledge"] = context.get("knowledge", [
+        "Enterprise escalation available for premium customers.",
+        "Renewals should be handled 30 days before expiry.",
     ])
-
-    context["knowledge"] = knowledge
 
     state["context"] = context
 
