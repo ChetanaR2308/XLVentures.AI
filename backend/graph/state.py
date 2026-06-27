@@ -9,9 +9,9 @@ class AgentState(TypedDict):
 
     crm_data: dict[str, Any]
 
-    knowledge: list[str]
-
-    memory: list[str]
+    knowledge: list[dict]
+    
+    memory: list[dict]
 
     recommendations: list[str]
 
