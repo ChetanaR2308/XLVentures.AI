@@ -1,90 +1,329 @@
-# XLVentures AI (SellGenie)
+# XLVentures.AI
 
-An agentic dashboard that turns customer transcripts into **Explainable Next Best Actions** using a **Planner Agent** (LangGraph) and multiple enterprise-like tools (CRM, Knowledge Base, and Memory).
+## Intelligent Next Best Action Platform
+
+### XLVentures.AI Hackathon 2026
+
+---
+
+## Project Overview
+
+XLVentures.AI is an Agentic Decision Intelligence Platform developed for the XLVentures.AI Hackathon. The platform analyzes customer interactions, retrieves relevant enterprise knowledge, understands customer history, and recommends intelligent next best actions supported by explainable AI reasoning.
+
+Unlike a traditional chatbot or Retrieval-Augmented Generation (RAG) application, this solution uses multiple specialized AI agents coordinated through a Planner Agent to produce business recommendations that are transparent, reusable, and extensible.
+
+---
+
+## Problem Statement
+
+Organizations receive customer information from various enterprise sources including meeting transcripts, CRM systems, customer conversations, emails, and internal documentation.
+
+Business users often spend considerable time gathering information before deciding on the next action for a customer.
+
+The objective of this project is to automate that decision-making process using an Agentic AI platform capable of understanding customer context, retrieving enterprise knowledge, reasoning over multiple information sources, and recommending the most appropriate next actions.
+
+---
+
+## Solution
+
+The platform performs the following workflow:
+
+1. Receives customer interaction data.
+2. Uses a Planner Agent to determine the required enterprise tools.
+3. Retrieves customer information from CRM.
+4. Retrieves organizational knowledge.
+5. Retrieves previous customer interactions from memory.
+6. Combines all retrieved information.
+7. Generates explainable next best action recommendations.
+8. Returns structured recommendations with confidence scores for human approval.
+
+---
+
+## System Architecture
+
+```
+                           React Frontend
+                                  │
+                                  ▼
+                           FastAPI Backend
+                                  │
+                                  ▼
+                         LangGraph Workflow
+                                  │
+                                  ▼
+                           Planner Agent
+                                  │
+          ┌───────────────────────┼────────────────────────┐
+          │                       │                        │
+          ▼                       ▼                        ▼
+      CRM Tool             Knowledge Tool            Memory Tool
+          └───────────────────────┼────────────────────────┘
+                                  ▼
+         Recommendation and Explainability Agent
+                                  │
+                                  ▼
+                    Structured Recommendation Output
+                                  │
+                                  ▼
+                           React Dashboard
+```
+
+---
 
 ## Features
 
-- **Planner Agent** decides which tools to run for the transcript
-- **CRM tool** provides customer profile/context
-- **Knowledge base tool** grounds responses in best practices/policies
-- **Memory tool** injects prior context for personalization
-- **Recommendation agent** returns prioritized actions + **confidence score**
-- FastAPI backend + React (Vite) frontend
+- Agentic AI architecture
+- Planner-based orchestration
+- Enterprise knowledge retrieval
+- Customer memory integration
+- Explainable recommendations
+- Confidence scoring
+- Human-in-the-loop approval
+- Modular and reusable architecture
+- Professional React dashboard
+
+---
+
+## AI Workflow
+
+The AI workflow follows these stages:
+
+1. Transcript ingestion
+2. Planner Agent execution
+3. CRM information retrieval
+4. Knowledge retrieval
+5. Memory retrieval
+6. Business reasoning
+7. Recommendation generation
+8. Explainability generation
+9. Confidence score calculation
+10. User approval
+
+---
+
+## Technology Stack
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router
+
+### Backend
+
+- Python
+- FastAPI
+- Uvicorn
+
+### Artificial Intelligence
+
+- Google Gemini
+- LangChain
+- LangGraph
+- Pydantic
+- Python Dotenv
+
+### Development Tools
+
+- Git
+- GitHub
+- Visual Studio Code
+
+---
 
 ## Project Structure
 
-- `backend/` - FastAPI app + LangGraph workflow + agents/tools
-- `frontend/` - React UI for uploading a transcript and viewing recommendations
+```
+XLVentures.AI
+│
+├── backend
+│   ├── agents
+│   ├── config
+│   ├── graph
+│   ├── prompts
+│   ├── models
+│   ├── utils
+│   ├── tests
+│   └── ...
+│
+├── frontend
+│   ├── public
+│   ├── src
+│   └── ...
+│
+├── requirements.txt
+├── .gitignore
+├── .env
+└── README.md
+```
 
-## Prerequisites
+---
 
-- Python 3.10+
-- Node.js 18+
-- A Google API key for the LLM (Gemini)
+## Installation
 
-## Backend Setup (FastAPI)
+### Clone the Repository
 
-1. Create and activate a virtual environment:
-   - `python -m venv .venv`
-   - Activate:
-     - Windows (cmd): `\.venv\Scripts\activate`
-     - PowerShell: `.\.venv\Scripts\Activate.ps1`
+```bash
+git clone <repository-url>
+cd XLVentures.AI
+```
 
-2. Install dependencies:
-   - `pip install -r requirements.txt`
+---
 
-3. Configure environment variables:
-   - `GOOGLE_API_KEY=<your_key>`
+### Backend Setup
 
-4. Run the backend:
-   - `uvicorn backend.main:app --reload --port 8000`
+Create a virtual environment.
 
-Backend Healthcheck:
-- `GET http://localhost:8000/`
+```bash
+python -m venv venv
+```
 
-## Frontend Setup (React / Vite)
+Activate the virtual environment.
 
-1. Install dependencies:
-   - `cd frontend`
-   - `npm install`
+Windows (Command Prompt)
 
-2. Run the dev server:
-   - `npm run dev`
+```bash
+venv\Scripts\activate
+```
 
-Frontend default API baseURL (in `frontend/src/services/api.js`):
-- `http://localhost:8000`
+Windows (PowerShell)
 
-> Note: In the current code, `analyzeTranscript()` returns a mocked response by default. To connect to the real backend, uncomment the `API.post("/analyze", ...)` call in `frontend/src/services/api.js`.
+```powershell
+.\venv\Scripts\Activate.ps1
+```
 
-## How the Analysis Works
+Install dependencies.
 
-1. User pastes a transcript in the UI
-2. Frontend calls backend `POST /analyze` with `{ transcript }`
-3. LangGraph workflow:
-   - `planner_agent` decides whether to call:
-     - `crm_tool`, and/or
-     - `knowledge_tool`, and then
-     - always `memory_tool`
-   - `recommendation_agent` produces recommendations and explanation
-4. UI renders:
-   - customer summary
-   - confidence gauge
-   - planner output
-   - next best actions
-   - AI explanation
+```bash
+pip install -r requirements.txt
+```
 
-## Tests
+Create a `.env` file.
 
-Backend tests are located in `backend/tests/`.
+```env
+GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
+```
 
-Run:
-- `pytest`
+Start the backend server.
 
-## Configuration / Data Files
+```bash
+cd backend
+uvicorn main:app --reload
+```
 
-The repository includes local JSON files under `backend/database/` (e.g., `crm.json`, `memory.json`) used by the tools.
+Backend URL
+
+```
+http://localhost:8000
+```
+
+Swagger Documentation
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+### Frontend Setup
+
+Navigate to the frontend directory.
+
+```bash
+cd frontend
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Run the development server.
+
+```bash
+npm run dev
+```
+
+Frontend URL
+
+```
+http://localhost:5173
+```
+
+---
+
+## Running the Complete Application
+
+Start the backend.
+
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+Open a new terminal and start the frontend.
+
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+## Team Responsibilities
+
+### Member 1
+
+- Frontend development
+- User interface
+- Dashboard
+- Visualization
+
+### Member 2
+
+- Agentic AI architecture
+- Planner Agent
+- LangGraph workflow
+- Recommendation engine
+- Explainability module
+
+### Member 3
+
+- FastAPI backend
+- APIs
+- Database
+- Enterprise knowledge retrieval
+- Integration
+
+---
+
+## Future Enhancements
+
+- Multi-model LLM support
+- Enterprise CRM integration
+- Authentication and authorization
+- Multi-tenant architecture
+- Continuous learning from user feedback
+- Analytics dashboard
+- Real-time enterprise connectors
+
+---
+
+## Hackathon Information
+
+Project Name: XLVentures.AI
+
+Hackathon: XLVentures.AI Hackathon 2026
+
+Problem Statement: Intelligent Next Best Action Platform
+
+Category: Agentic AI Decision Intelligence Platform
+
+---
 
 ## License
 
-Add license information here if needed.
-
+This project was developed for the XLVentures.AI Hackathon and is intended for educational and demonstration purposes.
