@@ -1,45 +1,67 @@
-import { Brain, Database, BookOpen, HardDrive } from "lucide-react";
+import { Database, BookOpen, HardDrive, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+
+const TOOLS = [
+  {
+    icon: Database,
+    name: "CRM Tool",
+    desc: "Customer profile retrieved",
+    colorClass: "feature-icon-blue",
+  },
+  {
+    icon: BookOpen,
+    name: "Knowledge Tool",
+    desc: "Policies & documentation",
+    colorClass: "feature-icon-green",
+  },
+  {
+    icon: HardDrive,
+    name: "Memory Tool",
+    desc: "Previous interactions",
+    colorClass: "feature-icon-violet",
+  },
+];
 
 function PlannerOutput() {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 mt-6">
-
-      <h2 className="text-2xl font-bold mb-5">
+    <div className="card results-section">
+      <div className="card-title">
+        <div className="card-title-icon feature-icon-yellow">
+          <Zap size={16} />
+        </div>
         Planner Agent
-      </h2>
-
-      <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm mb-6">
-        AI Selected 3 Tools
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5">
-
-        <div className="border rounded-xl p-5 text-center">
-          <Database className="mx-auto text-blue-600" size={40}/>
-          <h3 className="font-semibold mt-3">CRM Tool</h3>
-          <p className="text-gray-500 text-sm mt-2">
-            Customer Profile Retrieved
-          </p>
-        </div>
-
-        <div className="border rounded-xl p-5 text-center">
-          <BookOpen className="mx-auto text-green-600" size={40}/>
-          <h3 className="font-semibold mt-3">Knowledge Tool</h3>
-          <p className="text-gray-500 text-sm mt-2">
-            Policies & Documentation
-          </p>
-        </div>
-
-        <div className="border rounded-xl p-5 text-center">
-          <HardDrive className="mx-auto text-purple-600" size={40}/>
-          <h3 className="font-semibold mt-3">Memory Tool</h3>
-          <p className="text-gray-500 text-sm mt-2">
-            Previous Interactions
-          </p>
-        </div>
-
+      <div className="planner-badge">
+        <span
+          style={{
+            width: 6,
+            height: 6,
+            borderRadius: "50%",
+            background: "var(--blue-500)",
+            display: "inline-block",
+          }}
+        />
+        AI selected 3 tools
       </div>
 
+      <div className="planner-tools-grid">
+        {TOOLS.map((tool, i) => (
+          <motion.div
+            key={tool.name}
+            className="tool-card"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: i * 0.1 }}
+          >
+            <div className={`tool-icon ${tool.colorClass}`}>
+              <tool.icon size={22} />
+            </div>
+            <div className="tool-name">{tool.name}</div>
+            <div className="tool-desc">{tool.desc}</div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

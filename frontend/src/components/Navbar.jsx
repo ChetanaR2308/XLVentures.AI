@@ -1,46 +1,45 @@
 import { BrainCircuit } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const location = useLocation();
+
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
+
   return (
-    <nav className="bg-slate-900 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-        >
-          <BrainCircuit size={34} className="text-blue-400" />
-
+    <nav className="navbar">
+      <div className="navbar-inner">
+        <Link to="/" className="navbar-brand">
+          <div className="navbar-logo-icon">
+            <BrainCircuit size={20} />
+          </div>
           <div>
-            <h1 className="text-xl font-bold">
-              XLVentures AI
-            </h1>
-
-            <p className="text-xs text-gray-400">
-              Agentic Decision Intelligence
-            </p>
+            <div className="navbar-brand-name">XLVentures AI</div>
+            <div className="navbar-brand-sub">Agentic Decision Intelligence</div>
           </div>
         </Link>
 
-        <div className="flex gap-6 font-medium">
-
-          <Link
-            to="/"
-            className="hover:text-blue-400 transition"
-          >
-            Home
-          </Link>
-
-          <Link
-            to="/upload"
-            className="hover:text-blue-400 transition"
-          >
-            Analyze
-          </Link>
-
-        </div>
-
+        <ul className="navbar-links">
+          <li>
+            <Link
+              to="/"
+              className={`navbar-link${isActive("/") ? " active" : ""}`}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/upload"
+              className={`navbar-cta${isActive("/upload") ? " active" : ""}`}
+            >
+              Analyze Transcript
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

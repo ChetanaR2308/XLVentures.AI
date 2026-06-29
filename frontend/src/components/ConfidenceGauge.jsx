@@ -1,32 +1,52 @@
 import { motion } from "framer-motion";
+import { Target } from "lucide-react";
 
 function ConfidenceGauge({ confidence }) {
-  let color = "bg-red-500";
+  const fillClass =
+    confidence >= 80
+      ? "gauge-fill gauge-fill-green"
+      : confidence >= 50
+      ? "gauge-fill gauge-fill-yellow"
+      : "gauge-fill gauge-fill-red";
 
-  if (confidence >= 80) {
-    color = "bg-green-500";
-  } else if (confidence >= 50) {
-    color = "bg-yellow-500";
-  }
+  const scoreLabel =
+    confidence >= 80 ? "High Confidence" : confidence >= 50 ? "Moderate" : "Low Confidence";
 
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 mt-6">
-      <h2 className="text-2xl font-bold mb-4">
+    <div className="card">
+      <div className="card-title">
+        <div className="card-title-icon feature-icon-blue">
+          <Target size={16} />
+        </div>
         Confidence Score
-      </h2>
+      </div>
 
-      <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+      <div className="gauge-score">
         <motion.div
+          className="gauge-number"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {confidence}%
+        </motion.div>
+        <div className="gauge-label">{scoreLabel}</div>
+      </div>
+
+      <div className="gauge-track">
+        <motion.div
+          className={fillClass}
           initial={{ width: 0 }}
           animate={{ width: `${confidence}%` }}
-          transition={{ duration: 1 }}
-          className={`${color} h-6 rounded-full`}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
         />
       </div>
 
-      <p className="text-center text-3xl font-bold mt-4">
-        {confidence}%
-      </p>
+      <div className="gauge-legend">
+        <span>0%</span>
+        <span>50%</span>
+        <span>100%</span>
+      </div>
     </div>
   );
 }

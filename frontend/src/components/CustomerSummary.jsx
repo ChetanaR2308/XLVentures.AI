@@ -1,30 +1,40 @@
+import { User } from "lucide-react";
+
 function CustomerSummary({ crm }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6">
-
-      <h2 className="text-2xl font-bold mb-4">
+    <div className="card">
+      <div className="card-title">
+        <div className="card-title-icon feature-icon-indigo">
+          <User size={16} />
+        </div>
         Customer Summary
-      </h2>
-
-      <div className="grid grid-cols-2 gap-4">
-
-        <div>
-          <p className="text-gray-500">Customer</p>
-          <p className="font-semibold">{crm.customer_name}</p>
-        </div>
-
-        <div>
-          <p className="text-gray-500">Tier</p>
-          <p className="font-semibold">{crm.tier}</p>
-        </div>
-
-        <div>
-          <p className="text-gray-500">Status</p>
-          <p className="font-semibold">{crm.account_status}</p>
-        </div>
-
       </div>
 
+      <div className="customer-grid">
+        <div>
+          <div className="customer-field-label">Customer</div>
+          <div className="customer-field-value">{crm.customer_name}</div>
+        </div>
+        <div>
+          <div className="customer-field-label">Tier</div>
+          <span className="tier-badge">{crm.tier}</span>
+        </div>
+        <div>
+          <div className="customer-field-label">Account Status</div>
+          <span className="status-active">
+            <span
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                background: "var(--green-500)",
+                display: "inline-block",
+              }}
+            />
+            {crm.account_status}
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
