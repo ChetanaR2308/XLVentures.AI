@@ -1,233 +1,174 @@
 # XLVentures.AI
 
-## Intelligent Next Best Action Platform
+## AI-Powered Enterprise Decision Intelligence Platform
 
-### XLVentures.AI Hackathon 2026
+XLVentures.AI is an AI-powered enterprise intelligence platform designed to convert unstructured business meeting transcripts into structured, actionable insights. By leveraging a modular multi-agent AI architecture powered by Google's Gemini 2.5 Flash model, the platform helps organizations reduce manual effort and make faster, data-driven decisions.
 
----
-
-## Project Overview
-
-XLVentures.AI is an Agentic Decision Intelligence Platform developed for the XLVentures.AI Hackathon. The platform analyzes customer interactions, retrieves relevant enterprise knowledge, understands customer history, and recommends intelligent next best actions supported by explainable AI reasoning.
-
-Unlike a traditional chatbot or Retrieval-Augmented Generation (RAG) application, this solution uses multiple specialized AI agents coordinated through a Planner Agent to produce business recommendations that are transparent, reusable, and extensible.
+Instead of manually reviewing lengthy meeting discussions, users receive a comprehensive analysis that includes executive summaries, key insights, potential risks, business opportunities, and actionable recommendations through an intuitive and interactive dashboard.
 
 ---
 
-## Problem Statement
+# Team Details
 
-Organizations receive customer information from various enterprise sources including meeting transcripts, CRM systems, customer conversations, emails, and internal documentation.
+## Team Name
 
-Business users often spend considerable time gathering information before deciding on the next action for a customer.
+**VentureMinds**
 
-The objective of this project is to automate that decision-making process using an Agentic AI platform capable of understanding customer context, retrieving enterprise knowledge, reasoning over multiple information sources, and recommending the most appropriate next actions.
+## Team Members
 
----
+### Rangu Chetana
 
-## Solution
+* Email: [chetanarangu23@gmail.com](mailto:chetanarangu23@gmail.com)
+* Phone: +91 8247253582
 
-The platform performs the following workflow:
+### Thummanapelli Spoorthi
 
-1. Receives customer interaction data.
-2. Uses a Planner Agent to determine the required enterprise tools.
-3. Retrieves customer information from CRM.
-4. Retrieves organizational knowledge.
-5. Retrieves previous customer interactions from memory.
-6. Combines all retrieved information.
-7. Generates explainable next best action recommendations.
-8. Returns structured recommendations with confidence scores for human approval.
+* Email: [spoorthithummanapelli14@gmail.com](mailto:spoorthithummanapelli14@gmail.com)
+* Phone: +91 8374572979
 
----
+### Veda Munipally
 
-## System Architecture
-
-```
-                           React Frontend
-                                  │
-                                  ▼
-                           FastAPI Backend
-                                  │
-                                  ▼
-                         LangGraph Workflow
-                                  │
-                                  ▼
-                           Planner Agent
-                                  │
-          ┌───────────────────────┼────────────────────────┐
-          │                       │                        │
-          ▼                       ▼                        ▼
-      CRM Tool             Knowledge Tool            Memory Tool
-          └───────────────────────┼────────────────────────┘
-                                  ▼
-         Recommendation and Explainability Agent
-                                  │
-                                  ▼
-                    Structured Recommendation Output
-                                  │
-                                  ▼
-                           React Dashboard
-```
+* Email: [vedamunipally@gmail.com](mailto:vedamunipally@gmail.com)
+* Phone: +91 9100150278
 
 ---
 
-## Features
+# Project Overview
 
-- Agentic AI architecture
-- Planner-based orchestration
-- Enterprise knowledge retrieval
-- Customer memory integration
-- Explainable recommendations
-- Confidence scoring
-- Human-in-the-loop approval
-- Modular and reusable architecture
-- Professional React dashboard
+Business meetings generate valuable information, but the outcomes are often buried within long and unstructured transcripts. Manually identifying important decisions, risks, opportunities, and action items is time-consuming and prone to oversight.
 
----
+XLVentures.AI addresses this challenge by automatically analyzing meeting transcripts using specialized AI agents. Each agent focuses on a specific aspect of the conversation, producing structured outputs that support business decision-making.
 
-## AI Workflow
+The platform provides:
 
-The AI workflow follows these stages:
+* Executive Summary
+* Key Business Insights
+* Risk Identification
+* Opportunity Detection
+* Actionable Recommendations
 
-1. Transcript ingestion
-2. Planner Agent execution
-3. CRM information retrieval
-4. Knowledge retrieval
-5. Memory retrieval
-6. Business reasoning
-7. Recommendation generation
-8. Explainability generation
-9. Confidence score calculation
-10. User approval
+The generated insights are presented through a clean and responsive dashboard, making it easy for users to understand meeting outcomes within seconds.
 
 ---
 
-## Technology Stack
+# Key Features
 
-### Frontend
-
-- React
-- Vite
-- Tailwind CSS
-- Framer Motion
-- React Router
-
-### Backend
-
-- Python
-- FastAPI
-- Uvicorn
-
-### Artificial Intelligence
-
-- Google Gemini
-- LangChain
-- LangGraph
-- Pydantic
-- Python Dotenv
-
-### Development Tools
-
-- Git
-- GitHub
-- Visual Studio Code
+* AI-powered transcript analysis
+* Multi-agent workflow for specialized reasoning
+* Executive-level business summaries
+* Automatic risk and opportunity detection
+* Actionable recommendations
+* Modern and responsive user interface
+* Fast and scalable backend using FastAPI
 
 ---
 
-## Project Structure
+# Technology Stack
 
-```
-XLVentures.AI
-│
-├── backend
-│   ├── agents
-│   ├── config
-│   ├── graph
-│   ├── prompts
-│   ├── models
-│   ├── utils
-│   ├── tests
-│   └── ...
-│
-├── frontend
-│   ├── public
-│   ├── src
-│   └── ...
-│
-├── requirements.txt
-├── .gitignore
-├── .env
-└── README.md
-```
+## Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* Framer Motion
+* React Router
+* Lucide React Icons
+
+## Backend
+
+* Python
+* FastAPI
+* Uvicorn
+
+## Artificial Intelligence
+
+* Google Gemini 2.5 Flash
+* Prompt Engineering
+* Multi-Agent AI Architecture
 
 ---
 
-## Installation
+# Project Architecture
 
-### Clone the Repository
+The system follows a modular client-server architecture.
+
+1. Users upload or paste a meeting transcript through the React frontend.
+2. The FastAPI backend validates the request and forwards it to the AI orchestration layer.
+3. The Planner Agent coordinates the analysis process.
+4. Specialized AI agents independently generate:
+
+   * Executive Summary
+   * Key Insights
+   * Risks
+   * Opportunities
+   * Recommendations
+5. The backend consolidates all outputs into a structured response.
+6. The frontend displays the results in an interactive dashboard.
+
+This modular architecture makes the system scalable, maintainable, and easy to extend with additional AI agents in the future.
+
+---
+
+# GitHub Repository
+
+Repository Link:
+
+https://github.com/ChetanaR2308/XLVentures.AI
+
+---
+
+# Setup Instructions
+
+## Prerequisites
+
+* Python 3.11 or later
+* Node.js (v18 or later recommended)
+* npm
+* Google Gemini API Key
+
+---
+
+## Backend Setup
+
+Navigate to the backend directory.
 
 ```bash
-git clone <repository-url>
-cd XLVentures.AI
-```
-
----
-
-### Backend Setup
-
-Create a virtual environment.
-
-```bash
-python -m venv venv
+cd backend
 ```
 
 Activate the virtual environment.
 
-Windows (Command Prompt)
-
 ```bash
-venv\Scripts\activate
+.\venv\Scripts\Activate
 ```
 
-Windows (PowerShell)
-
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-Install dependencies.
+Install the required dependencies.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file.
+Create a `.env` file and add your Gemini API key.
 
 ```env
-GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
+GEMINI_API_KEY=YOUR_API_KEY
 ```
 
-Start the backend server.
+Start the FastAPI server.
 
 ```bash
-cd backend
 uvicorn main:app --reload
 ```
 
-Backend URL
+The backend will be available at:
 
-```
-http://localhost:8000
-```
-
-Swagger Documentation
-
-```
-http://localhost:8000/docs
+```text
+http://127.0.0.1:8000
 ```
 
 ---
 
-### Frontend Setup
+## Frontend Setup
 
 Navigate to the frontend directory.
 
@@ -241,89 +182,65 @@ Install dependencies.
 npm install
 ```
 
-Run the development server.
+Start the development server.
 
 ```bash
 npm run dev
 ```
 
-Frontend URL
+The frontend will be available at:
 
-```
+```text
 http://localhost:5173
 ```
 
 ---
 
-## Running the Complete Application
+# Repository Structure
 
-Start the backend.
-
-```bash
-cd backend
-uvicorn main:app --reload
+```text
+XLVentures.AI
+│
+├── backend
+│   ├── agents
+│   ├── main.py
+│   ├── requirements.txt
+│   └── .env
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   ├── package.json
+│   └── vite.config.js
+│
+├── README.md
+├── Architecture.md
+└── .gitignore
 ```
 
-Open a new terminal and start the frontend.
+---
 
-```bash
-cd frontend
-npm run dev
-```
+# Future Enhancements
+
+* PDF report generation
+* Audio and speech-to-text meeting analysis
+* Retrieval-Augmented Generation (RAG)
+* CRM integration
+* Slack and Microsoft Teams integration
+* User authentication and role-based access
+* Cloud deployment with Docker and Kubernetes
 
 ---
 
-## Team Responsibilities
+# Additional Notes
 
-### Member 1
-
-- Frontend development
-- User interface
-- Dashboard
-- Visualization
-
-### Member 2
-
-- Agentic AI architecture
-- Planner Agent
-- LangGraph workflow
-- Recommendation engine
-- Explainability module
-
-### Member 3
-
-- FastAPI backend
-- APIs
-- Database
-- Enterprise knowledge retrieval
-- Integration
+* Developed as part of the **XLVentures.AI Hackathon 2026**.
+* The project demonstrates the use of a modular multi-agent AI architecture for enterprise decision intelligence.
+* The architecture is designed for scalability, allowing additional AI agents and enterprise integrations to be incorporated with minimal changes.
+* Detailed architectural information and design decisions are available in **Architecture.md**.
 
 ---
 
-## Future Enhancements
+## Thank You
 
-- Multi-model LLM support
-- Enterprise CRM integration
-- Authentication and authorization
-- Multi-tenant architecture
-- Continuous learning from user feedback
-- Analytics dashboard
-- Real-time enterprise connectors
-
----
-
-## Hackathon Information
-
-Project Name: XLVentures.AI
-
-Hackathon: XLVentures.AI Hackathon 2026
-
-Problem Statement: Intelligent Next Best Action Platform
-
-Category: Agentic AI Decision Intelligence Platform
-
----
-
-## License
-
-This project was developed for the XLVentures.AI Hackathon and is intended for educational and demonstration purposes.
+Thank you for reviewing **XLVentures.AI**. We hope our solution demonstrates how agentic AI can simplify enterprise decision-making by transforming unstructured conversations into meaningful, actionable business intelligence.
